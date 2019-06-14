@@ -2,5 +2,5 @@
 package templates;
 
 public interface Funcionario {
-    public void batePonte();
+    public void batePonto();
 }
