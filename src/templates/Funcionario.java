@@ -3,10 +3,10 @@ package templates;
 
 public class Funcionario {
     
-   private String Nome, BatePonto;
-   private int Idade, Codigo, Cpf;
+   private String Nome, BatePonto, Cpf;
+   private int Idade, Codigo;
    
-    public Funcionario (String Nome,String BatePonto, int Idade, int Codigo, int Cpf ){
+    public Funcionario (String Nome,String BatePonto, int Idade, int Codigo, String Cpf ){
         this.Nome = Nome;
         this.BatePonto = BatePonto;
         this.Idade = Idade;
@@ -37,11 +37,11 @@ public class Funcionario {
         this.Idade = Idade;
     }
     
-    public int getCpf () {
+    public String getCpf () {
         return Cpf;
     }
     
-    public void setCpf (int Cpf) {
+    public void setCpf (String Cpf) {
         this.Cpf = Cpf;
     }
    

@@ -1,13 +1,13 @@
 package components;
 
 public class DataPessoa {
-    private String nome, cpf;
-    private int idade;
+    private String Nome,Cpf;
+    private int Idade;
 
-    public DataPessoa(String nome, String cpf, int idade) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.idade = idade;
+    public DataPessoa(String Nome, String Cpf, int Idade) {
+        this.Nome = Nome;
+        this.Cpf = Cpf;
+        this.Idade = Idade;
     }
     
 }
