@@ -8,6 +8,5 @@ public class Principal {
         Professor prof2 = new Professor("Maria", "123.2123.100-87", 27);
         System.out.println(prof2.toString());
         
-        prof2.batePonto();
     }
 }
