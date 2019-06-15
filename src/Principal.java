@@ -74,7 +74,7 @@ public class Principal {
                             prof[i] = null;
                         }
                         if(prof[i] != null)
-                            System.out.println("\nAdicionado com sucesso!\n");
+                            System.out.println("\nSalvo com sucesso!\n");
                         break;
                     }else
                         error = "\nTodos os cadastro já foram feitos.";
@@ -111,7 +111,40 @@ public class Principal {
                 
                 break;
             case 3:
-                System.out.println("atualizar");
+                try{
+                    System.out.print("\nInforme o codigo a ser excluido -> ");
+                    String cod = scan.next(), msg = "";
+                    scan.nextLine();
+                    for(int i=0; i<prof.length; i++){
+                        if(cod.toLowerCase().equals(prof[i].getStrCod().toLowerCase())){
+                            System.out.print("Informe o nome -> ");
+                            String nome = scan.nextLine();
+                            System.out.print("Informe o cpf -> ");
+                            String cpf = scan.nextLine();
+                            System.out.print("Informe o idade -> ");
+                            int idade = scan.nextInt();
+                            System.out.print("Informe o salario -> ");
+                            double salario = scan.nextDouble();
+
+                            prof[i] = new Professor(nome, cpf, idade, salario);
+                            msg = "Salvo com sucesso!";
+                            
+                            scan.nextLine();
+                            break;
+                        }else
+                            msg = "Nada a ser atualizado.";
+
+                    }
+
+                    System.out.println("\n"+msg+"\n");
+                }catch(InputMismatchException e){
+                    scan.reset();
+                    System.out.println("\nErro: Os valores desem ser passados corretamente!");
+                }catch(NullPointerException e){
+                    scan.reset();
+                    System.out.println("\nNada a ser excluido.");
+                }
+                
                 break;
             case 4:
                 System.out.println("\nListar de Professores:\n");
