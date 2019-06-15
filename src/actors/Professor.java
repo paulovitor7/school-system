@@ -4,12 +4,11 @@ import templates.Funcionario;
 
 public class Professor extends Funcionario{
 
-    private final String tipoFuncionario = "Professor";
     private static String strCodigo;
     private static int codigo;
     
-    public Professor(String nome, String cpf, int idade) {
-        super(nome, cpf, idade);
+    public Professor(String nome, String cpf, int idade, double salario) {
+        super(nome, cpf, idade, salario, 0.1, "Professor");
         codigo++;
         strCodigo = "P"+codigo;
     }
@@ -21,6 +20,8 @@ public class Professor extends Funcionario{
                 "Nome: "+nome+"\n"+
                 "CPF: "+cpf+"\n"+
                 "Idade: "+idade+"\n"+
+                "Salario: "+salario+"\n"+
+                "Bonus: "+bonus+"\n"+
                 "Ponto eletrônico: "+batePonto;
     }
     
