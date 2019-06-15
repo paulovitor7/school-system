@@ -1,3 +1,4 @@
+import actors.Aluno;
 import actors.Professor;
 import components.Global;
 import java.util.Scanner;
@@ -10,6 +11,7 @@ public class Principal {
     static boolean sair = false;
     static final int MAXPROF=2, MAXALUNO=20;
     static Professor[] prof = new Professor[MAXPROF];
+    static Aluno[] alun = new Aluno[MAXALUNO];
     
     public static void main(String[] args){
 
@@ -177,34 +179,139 @@ public class Principal {
     
     // setup Aluno
     private static void aluno(){
-        System.out.print("\n< Aluno >");
-        g.subMenu();
-        int opc = scan.nextInt();
-        switch(opc){
+        System.out.print("\n< Aluno >\n");
+        boolean sairAlun = false;
+        
+        while(!sairAlun){
+            g.subMenu();
+            int opc = scan.nextInt();
+            scan.nextLine();
+            
+            switch(opc){
             case 1:
-                System.out.println("Add");
+                System.out.println("\nMáximo de cadastro: "+MAXALUNO+"\n");
+                String error = "";
+                
+                for(int i=0; i<alun.length; i++){
+                    if(alun[i] == null){
+                        try{
+                            System.out.print("Informe o nome -> ");
+                            String nome = scan.nextLine();
+                            System.out.print("Informe o cpf -> ");
+                            String cpf = scan.nextLine();
+                            System.out.print("Informe o idade -> ");
+                            int idade = scan.nextInt();
+                            
+                            alun[i] = new Aluno (nome, cpf, idade);
+                            error = "";
+                        }catch(InputMismatchException e){
+                            scan.reset();
+                            scan.next(); 
+                            System.out.println("\nErro: Os valores desem ser passados corretamente!");
+                            alun[i] = null;
+                        }
+                        if(alun[i] != null)
+                            System.out.println("\nSalvo com sucesso!\n");
+                        break;
+                    }else
+                        error = "\nTodos os cadastro já foram feitos.";
+                    
+                }
+                
+                if(error.equals(""))
+                    System.out.println(error);
+                
                 break;
             case 2:
-                System.out.println("Excluir");
+                try{
+                    System.out.print("Informe o codigo a ser excluido -> ");
+                    int cod = scan.nextInt();
+                    String msg = "";
+
+                    for(int i=0; i<alun.length; i++){
+                        if(cod == alun[i].getRa()){
+                            alun[i] = null;
+                            msg = "Excluido com sucesso!";
+                            break;
+                        }else
+                            msg = "Nada a ser excluido.";
+
+                    }
+
+                    System.out.println("\n"+msg+"\n");
+                }catch(InputMismatchException e){
+                    scan.reset();
+                    System.out.println("\nErro: Os valores desem ser passados corretamente!");
+                }catch(NullPointerException e){
+                    scan.reset();
+                    System.out.println("\nNada a ser excluido.");
+                }
+                
                 break;
             case 3:
-                System.out.println("atualizar");
+                try{
+                    System.out.print("\nInforme o codigo a ser atualizado -> ");
+                    int cod = scan.nextInt(); 
+                    String msg = "";
+                    scan.nextLine();
+                    for(int i=0; i<alun.length; i++){
+                        
+                        if(cod == alun[i].getRa()){
+                            System.out.print("Informe o nome -> ");
+                            String nome = scan.nextLine();
+                            System.out.print("Informe o cpf -> ");
+                            String cpf = scan.nextLine();
+                            System.out.print("Informe o idade -> ");
+                            int idade = scan.nextInt();
+                            
+
+                            alun[i].setNome(nome);
+                            alun[i].setCpf(cpf);
+                            alun[i].setIdade(idade);
+                            
+                            
+                            msg = "Salvo com sucesso!";
+                            
+                            scan.nextLine();
+                            break;
+                        }else
+                            msg = "Nada a ser atualizado.";
+
+                    }
+
+                    System.out.println("\n"+msg+"\n");
+                }catch(InputMismatchException e){
+                    scan.reset();
+                    System.out.println("\nErro: Os valores desem ser passados corretamente!");
+                }catch(NullPointerException e){
+                    scan.reset();
+                    System.out.println("\nNada a ser excluido.");
+                }
+                
                 break;
             case 4:
-                System.out.println("listar");
+                System.out.println("\nListar de Alunos:\n");
+                for(int i=0; i<alun.length; i++){
+                    if(alun[i] != null)
+                        System.out.println((i+1)+". cod: "+alun[i].getRa()+" - Nome: "+alun[i].getNome()+"");
+                }
                 break;
             case 5:
                 System.out.println("\nVoltando...");
+                sairAlun = true;
                 break;
             case 6:
                 System.out.println("\nVocê escolheu sair.\nFinalizando programa...");
-                sair = false;
+                sairAlun = true;
+                sair = true;
                 break;
             default:
                 System.out.println("\nNenhuma das opções foi selecionada.\nFinalizando programa...");
-                sair = false;
+                sairAlun = true;
+                sair = true;
                 break;
-        }
+            }
     }
     
+    }
 }
