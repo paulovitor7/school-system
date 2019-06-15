@@ -25,6 +25,14 @@ public class Turma extends Materia{
         return codigo;
     }
     
+    public String getNome(){
+        return this.nome;
+    }
+    
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    
     @Override
     public String toString(){
         String strTurma = "\nTurma: "+this.nome+"\nCodio: "+codigo;
