@@ -112,7 +112,7 @@ public class Principal {
                 break;
             case 3:
                 try{
-                    System.out.print("\nInforme o codigo a ser excluido -> ");
+                    System.out.print("\nInforme o codigo a ser atualizado -> ");
                     String cod = scan.next(), msg = "";
                     scan.nextLine();
                     for(int i=0; i<prof.length; i++){
@@ -126,7 +126,11 @@ public class Principal {
                             System.out.print("Informe o salario -> ");
                             double salario = scan.nextDouble();
 
-                            prof[i] = new Professor(nome, cpf, idade, salario);
+                            prof[i].setNome(nome);
+                            prof[i].setCpf(cpf);
+                            prof[i].setIdade(idade);
+                            prof[i].setSalario(salario);
+                            
                             msg = "Salvo com sucesso!";
                             
                             scan.nextLine();

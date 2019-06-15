@@ -29,6 +29,14 @@ public class Funcionario extends Pessoa implements ActionsFuncionario{
         return salarioBonus;
     }
     
+    public void setSalario(double salario){
+        this.salario = salario;
+    }
+    
+    public double getSalario(double salario){
+        return this.salario;
+    }
+       
     private void batePonto(){
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm"); 
 	Date date = new Date(); 

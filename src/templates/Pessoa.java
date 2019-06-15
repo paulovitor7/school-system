@@ -1,9 +1,5 @@
 package templates;
 
-//import components.DataPessoa;
-//import java.util.ArrayList;
-//import java.util.Iterator;
-
 public abstract class Pessoa {
     
     protected String nome;
