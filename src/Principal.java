@@ -1,5 +1,6 @@
 import actors.Aluno;
 import actors.Professor;
+import actors.Turma;
 import components.Global;
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -9,9 +10,10 @@ public class Principal {
     static Scanner scan = new Scanner(System.in);
     static Global g = new Global();
     static boolean sair = false;
-    static final int MAXPROF=2, MAXALUNO=20;
+    static final int MAXPROF=2, MAXALUNO=20, MAXTURMA=3;
     static Professor[] prof = new Professor[MAXPROF];
     static Aluno[] aluno = new Aluno[MAXALUNO];
+    static Turma[] turma = new Turma[MAXALUNO];
     
     public static void main(String[] args){
 
@@ -54,6 +56,14 @@ public class Principal {
     // setup Turma
     private static void turma(){
         System.out.print("\n< Turma >\n");
+        boolean sairTurma = false;
+        
+        while(!sairTurma){
+            g.subMenu();
+            int opc = scan.nextInt();
+            scan.nextLine();
+            sairTurma = true;
+        }
     }
     
     // setup Professor
