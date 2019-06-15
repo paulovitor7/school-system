@@ -14,9 +14,10 @@ public class Global {
     
     public void menuPrincipal(){
         System.out.print("\n---------------------------------"
-                + "\n1 para area de professores"
-                + "\n2 para area de alunos"
-                + "\n3 para sair"
+                + "\n1 para area de turma"
+                + "\n2 para area de professores"
+                + "\n3 para area de alunos"
+                + "\n4 para sair"
                 + "\n---------------------------------\nSelecione -> ");
     }
     

@@ -8,13 +8,11 @@ public class Aluno extends Pessoa{
     
     public Aluno(String nome, String cpf, int idade, String turma) {
         super(nome, cpf, idade);
-        
         this.turma = turma;
         ra++;
     }
     
     public int getRa () {
-        
         return ra;
     }
     
@@ -29,13 +27,10 @@ public class Aluno extends Pessoa{
     
     @Override
     public String toString () { 
-            return "\n\nAluno: "+this.ra+"\n"+
-                
-                "Nome: "+nome+"\n"+
-                "CPF: "+cpf+"\n"+
-                "Idade: "+idade+"\n"+
-                "n/n Turma: "+this.turma;
-    
-                
+            return "\n\nAluno: "+ra+"\n"+
+                    "Nome: "+nome+"\n"+
+                    "CPF: "+cpf+"\n"+
+                    "Idade: "+idade+"\n"+
+                    "Turma: "+this.turma;
      }
 }
