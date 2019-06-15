@@ -63,6 +63,102 @@ public class Principal {
             int opc = scan.nextInt();
             scan.nextLine();
             sairTurma = true;
+            
+            switch(opc){
+                case 1:{
+                    System.out.println("\nMáximo de cadastro: "+MAXALUNO+"\n");
+                    String error = "";
+
+                    for(int i=0; i<turma.length; i++){
+                        if(turma[i] == null){
+                            System.out.print("Informe o nome -> ");
+                            String nome = scan.nextLine();
+                            
+                            int[] aulas = new int [3];
+                            turma [i] = new Turma (nome, aulas);
+                            error = "";
+
+                            if(turma[i] != null)
+                                System.out.println("\nSalvo com sucesso!\n");
+
+                            break;
+                        }else
+                            error = "\nTodos os cadastro já foram feitos.";
+
+                    }
+
+                    if(error.equals(""))
+                        System.out.println(error);
+
+                    break;
+                }
+                case 2:{
+                    System.out.print("Informe o codigo a ser excluido -> ");
+                    int cod = scan.nextInt();
+                    String msg = "";
+
+                    for(int i=0; i<turma.length; i++){
+                        if(cod == turma [i].getCodigo()){
+                            turma[i] = null;
+                            msg = "Excluido com sucesso!";
+                            break;
+                        }else
+                            msg = "Nada a ser excluido.";
+
+                    }
+
+                    System.out.println("\n"+msg+"\n");
+                    break;
+                }
+                case 3:{
+                    System.out.print("\nInforme o codigo a ser atualizado -> ");
+                    int cod = scan.nextInt();
+                    String msg = "";
+                    scan.nextLine();
+                    
+                    for(int i=0; i<turma.length; i++){
+                        if(cod == turma [i].getCodigo()){
+                            System.out.print("Informe o nome -> ");
+                            String nome = scan.nextLine();
+                            
+                            turma[i].setNome(nome);
+                            
+                            msg = "Salvo com sucesso!";
+
+                            scan.nextLine();
+                            break;
+                        }else
+                            msg = "Nada a ser atualizado.";
+                    }
+                    System.out.println("\n"+msg+"\n");
+                    break;
+                }
+                case 4:{
+                    System.out.println("\nListar de Turmas:\n");
+                    for(int i=0; i<turma.length; i++){
+                        if(turma[i] != null)
+                            System.out.println((i+1)+". cod: "+turma[i].getNome()+" - Nome: "+turma[i].getNome());
+                    }
+                    break;
+                }
+                case 5:{
+                    System.out.println("\nVoltando...");
+                    sairTurma = true;
+                    break;
+                }
+                case 6:{
+                    System.out.println("\nVocê escolheu sair.\nFinalizando programa...");
+                    sairTurma = true;
+                    sair = true;
+                    break;
+                }
+                default:
+                    System.out.println("\nNenhuma das opções foi selecionada.\nFinalizando programa...");
+                    sairTurma = true;
+                    sair = true;
+                    break;
+            }
+        
         }
     }
     
