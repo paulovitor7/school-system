@@ -13,6 +13,14 @@ public class Professor extends Funcionario{
         strCodigo = "P"+codigo;
     }
     
+    public String getStrCod() {
+        return strCodigo;
+    }
+    
+    public int getCod() {
+        return codigo;
+    }
+    
     @Override
     public String toString(){
         return "\n\nFuncionario: "+tipoFuncionario+"\n"+

@@ -2,7 +2,7 @@ import actors.Professor;
 import components.Global;
 import java.util.Scanner;
 import java.util.InputMismatchException;
-
+import java.lang.NullPointerException;
 
 public class Principal {
     static Scanner scan = new Scanner(System.in);
@@ -38,6 +38,7 @@ public class Principal {
         scan.close();
     }
     
+    // setup Professor
     private static void professor(){
         System.out.print("\n< Professor >\n");
         boolean sairProf = false;
@@ -85,7 +86,29 @@ public class Principal {
                 
                 break;
             case 2:
-                System.out.println("Excluir");
+                try{
+                    System.out.print("Informe o codigo a ser excluido -> ");
+                    String cod = scan.next(), msg = "";
+
+                    for(int i=0; i<prof.length; i++){
+                        if(cod.toLowerCase().equals(prof[i].getStrCod().toLowerCase())){
+                            prof[i] = null;
+                            msg = "Excluido com sucesso!";
+                            break;
+                        }else
+                            msg = "Nada a ser excluido.";
+
+                    }
+
+                    System.out.println("\n"+msg+"\n");
+                }catch(InputMismatchException e){
+                    scan.reset();
+                    System.out.println("\nErro: Os valores desem ser passados corretamente!");
+                }catch(NullPointerException e){
+                    scan.reset();
+                    System.out.println("\nNada a ser excluido.");
+                }
+                
                 break;
             case 3:
                 System.out.println("atualizar");
@@ -94,7 +117,7 @@ public class Principal {
                 System.out.println("\nListar de Professores:\n");
                 for(int i=0; i<prof.length; i++){
                     if(prof[i] != null)
-                        System.out.println((i+1)+": "+prof[i].getNome());
+                        System.out.println((i+1)+". cod: "+prof[i].getStrCod()+" - Nome: "+prof[i].getNome()+"");
                 }
                 break;
             case 5:
@@ -115,6 +138,7 @@ public class Principal {
         }
     }
     
+    // setup Aluno
     private static void aluno(){
         System.out.print("\n< Aluno >");
         g.subMenu();
