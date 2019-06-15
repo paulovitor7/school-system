@@ -6,10 +6,12 @@ public class Turma extends Materia{
     
     private String nome = "";
     private String[] aulas;
-
+    private static int codigo;
+    
     public Turma(String nome, int[] aulasIndice) {
         this.nome = nome;
         this.mountAulas(aulasIndice);
+        codigo++;
     }
     
     private void mountAulas(int[] aulasIndice){
@@ -19,9 +21,13 @@ public class Turma extends Materia{
         }
     }
     
+    public int getCodigo(){
+        return codigo;
+    }
+    
     @Override
     public String toString(){
-        String strTurma = "< Turma: "+this.nome+" >";
+        String strTurma = "\nTurma: "+this.nome+"\nCodio: "+codigo;
         for(int i=0; i<this.aulas.length; i++)
             strTurma = strTurma+"\n"+this.aulas[i];
         

@@ -32,5 +32,11 @@ public class Global {
                 + "\n---------------------------------\nSelecione -> ");
     }
     
+    public void subMenuTurma(String aulas){
+        System.out.print("\n---------------------------------\n"
+                +aulas
+                + "\n---------------------------------\nSelecione -> ");
+        
+    }
     // return
 }
