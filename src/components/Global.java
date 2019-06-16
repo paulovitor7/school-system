@@ -20,7 +20,8 @@ public class Global {
                 + "\n1 para area de turma"
                 + "\n2 para area de professores"
                 + "\n3 para area de alunos"
-                + "\n4 para sair"
+                + "\n4 para area de relatorio"
+                + "\n5 para sair"
                 + "\n---------------------------------\nSelecione -> ");
     }
     
@@ -30,11 +31,22 @@ public class Global {
                 + "\n2 para excluir"
                 + "\n3 para atualizar"
                 + "\n4 para listar"
-                + "\n5 para voltar"
-                + "\n6 para sair"
+                + "\n5 para lista personalizada"
+                + "\n6 para voltar"
+                + "\n7 para sair"
                 + "\n---------------------------------\nSelecione -> ");
     }
     
+    public void subMenuListaPersonalizada(){
+        System.out.print("\n---------------------------------"
+                + "\n1 para listar tudo"
+                + "\n2 para listar apenas um"
+                + "\n3 para voltar"
+                + "\n4 para sair"
+                + "\n---------------------------------\nSelecione -> ");
+    }
+    
+    // return
     public int[] subMenuTurma(int max){
         Scanner scan = new Scanner(System.in);
         Materia materias = new Materia();
@@ -52,5 +64,4 @@ public class Global {
         
         return selecionados;
     }
-    // return
 }

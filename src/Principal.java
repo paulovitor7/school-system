@@ -33,6 +33,9 @@ public class Principal {
                         aluno();
                         break;
                     case 4:
+                        relatorio();
+                        break;
+                    case 45:
                         System.out.println("\nVocê escolheu sair.\nFinalizando programa...");
                         sair = true;
                         break;
@@ -149,11 +152,31 @@ public class Principal {
                     break;
                 }
                 case 5:{
+                    System.out.println("\nLista Personalizada:\n");
+                    g.subMenuListaPersonalizada();
+                    int opcLista = scan.nextInt();
+                    scan.nextLine();
+                    if(opcLista == 1){
+                        System.out.println("Lista detalhada: ");
+                        for(int i=0; i<turma.length; i++){
+                            if(turma[i] != null)
+                                System.out.println("\n"+turma[i].toString());
+                        }
+                    }else if(opcLista == 2){
+                        System.out.println("em desenvolvimento...");
+                    }else if(opcLista == 3)
+                        System.out.println("Voltando...");
+                    else
+                        System.out.println("Opção não encontrada!");
+                    
+                    break;
+                }
+                case 6:{
                     System.out.println("\nVoltando...");
                     sairTurma = true;
                     break;
                 }
-                case 6:{
+                case 7:{
                     System.out.println("\nVocê escolheu sair.\nFinalizando programa...");
                     sairTurma = true;
                     sair = true;
@@ -418,5 +441,9 @@ public class Principal {
             }
         }
     
+    }
+    
+    private static void relatorio(){
+        
     }
 }
