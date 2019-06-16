@@ -290,12 +290,34 @@ public class Principal {
                     }
                     break;
                 }
+                
                 case 5:{
+                    System.out.println("\nLista Personalizada:\n");
+                    g.subMenuListaPersonalizada();
+                    int opcLista = scan.nextInt();
+                    scan.nextLine();
+                    if(opcLista == 1){
+                        System.out.println("Lista detalhada: ");
+                        for(int i=0; i<prof.length; i++){
+                            if(prof[i] != null)
+                                System.out.println("\n"+prof[i].toString());
+                        }
+                    }else if(opcLista == 2){
+                        System.out.println("em desenvolvimento...");
+                    }else if(opcLista == 3)
+                        System.out.println("Voltando...");
+                    else
+                        System.out.println("Opção não encontrada!");
+                    
+                    break;
+                }
+                
+                case 6:{
                     System.out.println("\nVoltando...");
                     sairProf = true;
                     break;
                 }
-                case 6:{
+                case 7:{
                     System.out.println("\nVocê escolheu sair.\nFinalizando programa...");
                     sairProf = true;
                     sair = true;
@@ -422,12 +444,34 @@ public class Principal {
                     }
                     break;
                 }
+                
                 case 5:{
+                    System.out.println("\nLista Personalizada:\n");
+                    g.subMenuListaPersonalizada();
+                    int opcLista = scan.nextInt();
+                    scan.nextLine();
+                    if(opcLista == 1){
+                        System.out.println("Lista detalhada: ");
+                        for(int i=0; i<aluno.length; i++){
+                            if(aluno[i] != null)
+                                System.out.println("\n"+aluno[i].toString());
+                        }
+                    }else if(opcLista == 2){
+                        System.out.println("em desenvolvimento...");
+                    }else if(opcLista == 3)
+                        System.out.println("Voltando...");
+                    else
+                        System.out.println("Opção não encontrada!");
+                    
+                    break;
+                }
+                
+                case 6:{
                     System.out.println("\nVoltando...");
                     sairAluno = true;
                     break;
                 }
-                case 6:{
+                case 7:{
                     System.out.println("\nVocê escolheu sair.\nFinalizando programa...");
                     sairAluno = true;
                     sair = true;
