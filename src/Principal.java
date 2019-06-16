@@ -311,17 +311,27 @@ public class Principal {
                             if(prof[i] != null)
                                 System.out.println("\n"+prof[i].toString());
                         }
+                        
                     }else if(opcLista == 2){
-                        System.out.println("em desenvolvimento...");
+                        System.out.print("\nInforme o codigo a ser listado -> ");
+                        String cod = scan.nextLine();
+                        scan.nextLine();
+                        for(int i=0; i<prof.length; i++){
+                            
+                            if(prof[i] != null)
+                                if(prof[i].getStrCod().equals (cod)){
+                                    System.out.println("\n"+prof[i].toString());
+                                    break;} }
                     }else if(opcLista == 3)
                         System.out.println("Voltando...");
                     else
                         System.out.println("Opção não encontrada!");
                     
                     break;
-                }
+                } 
+                        
                 
-                case 6:{
+                   case 6:{
                     System.out.println("\nVoltando...");
                     sairProf = true;
                     break;
@@ -466,7 +476,14 @@ public class Principal {
                                 System.out.println("\n"+aluno[i].toString());
                         }
                     }else if(opcLista == 2){
-                        System.out.println("em desenvolvimento...");
+                        System.out.print("\nInforme o codigo a ser listado -> ");
+                        int cod = scan.nextInt();
+                        scan.nextLine();
+                        for(int i=0; i<aluno.length; i++){
+                            if(aluno[i] != null)
+                                if(aluno[i].getRa() == cod){
+                                    System.out.println("\n"+aluno[i].toString());
+                                    break;} }
                     }else if(opcLista == 3)
                         System.out.println("Voltando...");
                     else
@@ -478,7 +495,7 @@ public class Principal {
                 case 6:{
                     System.out.println("\nVoltando...");
                     sairAluno = true;
-                    break;
+                    break; 
                 }
                 case 7:{
                     System.out.println("\nVocê escolheu sair.\nFinalizando programa...");
