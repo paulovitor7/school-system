@@ -46,6 +46,10 @@ public class Global {
                 + "\n---------------------------------\nSelecione -> ");
     }
     
+    public void relatorio(){
+        
+    }
+    
     // return
     public int[] subMenuTurma(int max){
         Scanner scan = new Scanner(System.in);

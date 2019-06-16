@@ -3,17 +3,18 @@ package actors;
 import templates.Pessoa;
 
 public class Aluno extends Pessoa{
-    private static int ra;
+    private int ra;
     private String turma;
+    private static int codigoInterno;
     
     public Aluno(String nome, String cpf, int idade, String turma) {
         super(nome, cpf, idade);
         this.turma = turma;
-        ra++;
+        this.ra = ++codigoInterno;
     }
     
     public int getRa () {
-        return ra;
+        return this.ra;
     }
     
     public String getTurma (){
@@ -27,7 +28,7 @@ public class Aluno extends Pessoa{
     
     @Override
     public String toString () { 
-            return "\n\nAluno: "+ra+"\n"+
+            return "\n\nAluno: "+this.ra+"\n"+
                     "Nome: "+nome+"\n"+
                     "CPF: "+cpf+"\n"+
                     "Idade: "+idade+"\n"+

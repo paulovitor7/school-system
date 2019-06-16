@@ -7,11 +7,12 @@ public class Turma extends Materia{
     private String nome = "";
     private String[] aulas;
     private int codigo;
+    private static int codigoInterno;
     
     public Turma(String nome, int[] aulasIndice) {
         this.nome = nome.toUpperCase();
         this.mountAulas(aulasIndice);
-        codigo++;
+        this.codigo = ++codigoInterno;
     }
     
     private void mountAulas(int[] aulasIndice){
@@ -22,7 +23,7 @@ public class Turma extends Materia{
     }
     
     public int getCodigo(){
-        return codigo;
+        return this.codigo;
     }
     
     public String getNome(){
