@@ -227,9 +227,15 @@ public class Principal {
                             int idade = scan.nextInt();
                             System.out.print("Informe o salario -> ");
                             double salario = scan.nextDouble();
+                            scan.nextLine();
+                            System.out.print("Informe o turma -> ");
+                            String turma = scan.nextLine();
 
-                            prof[i] = new Professor(nome, cpf, idade, salario, "A");
-                            error = "";
+                            if(!verifyTurma(turma).equals("")){
+                                prof[i] = new Professor(nome, cpf, idade, salario, turma);
+                                error = "";
+                            }else
+                                error = "\nOs dados não foram salvos, pois turma '"+turma+"' não existe.";
 
                             if(prof[i] != null)
                                 System.out.println("\nSalvo com sucesso!\n");
@@ -240,7 +246,7 @@ public class Principal {
 
                     }
 
-                    if(error.equals(""))
+                    if(!error.equals(""))
                         System.out.println(error);
 
                     break;
@@ -276,15 +282,19 @@ public class Principal {
                             int idade = scan.nextInt();
                             System.out.print("Informe o salario -> ");
                             double salario = scan.nextDouble();
-
-                            prof[i].setNome(nome);
-                            prof[i].setCpf(cpf);
-                            prof[i].setIdade(idade);
-                            prof[i].setSalario(salario);
-
-                            msg = "Salvo com sucesso!";
-
                             scan.nextLine();
+                            System.out.print("Informe o turma -> ");
+                            String turma = scan.nextLine();
+                            
+                            if(!verifyTurma(turma).equals("")){
+                                prof[i].setNome(nome);
+                                prof[i].setCpf(cpf);
+                                prof[i].setIdade(idade);
+                                prof[i].setSalario(salario);
+                                msg = "Salvo com sucesso!";
+                            }else
+                                msg = "\nOs dados não foram salvos, pois turma '"+turma+"' não existe.";
+                            
                             break;
                         }else
                             msg = "Nada a ser atualizado.";
@@ -372,25 +382,22 @@ public class Principal {
 
                     for(int i=0; i<aluno.length; i++){
                         if(aluno[i] == null){
-                            try{
-                                System.out.print("Informe o nome -> ");
-                                String nome = scan.nextLine();
-                                System.out.print("Informe o cpf -> ");
-                                String cpf = scan.nextLine();
-                                System.out.print("Informe o idade -> ");
-                                int idade = scan.nextInt();
-                                scan.nextLine();
-                                System.out.print("Informe a turma -> ");
-                                String turma = scan.nextLine();
+                            System.out.print("Informe o nome -> ");
+                            String nome = scan.nextLine();
+                            System.out.print("Informe o cpf -> ");
+                            String cpf = scan.nextLine();
+                            System.out.print("Informe o idade -> ");
+                            int idade = scan.nextInt();
+                            scan.nextLine();
+                            System.out.print("Informe a turma -> ");
+                            String turma = scan.nextLine();
 
+                            if(!verifyTurma(turma).equals("")){
                                 aluno[i] = new Aluno (nome, cpf, idade, turma);
                                 error = "";
-                            }catch(InputMismatchException e){
-                                scan.reset();
-                                scan.next(); 
-                                System.out.println("\nErro: Os valores desem ser passados corretamente!");
-                                aluno[i] = null;
-                            }
+                            }else
+                                error = "\nOs dados não foram salvos, pois turma '"+turma+"' não existe.";
+
                             if(aluno[i] != null)
                                 System.out.println("\nSalvo com sucesso!\n");
                             break;
@@ -399,7 +406,7 @@ public class Principal {
 
                     }
 
-                    if(error.equals(""))
+                    if(!error.equals(""))
                         System.out.println(error);
 
                     break;
@@ -440,16 +447,15 @@ public class Principal {
                             System.out.print("Informe a turma -> ");
                             String turma = scan.nextLine();
 
-
-                            aluno[i].setNome(nome);
-                            aluno[i].setCpf(cpf);
-                            aluno[i].setIdade(idade);
-                            aluno[i].setTurma(turma);
-
-
-                            msg = "Salvo com sucesso!";
-
-                            scan.nextLine();
+                            if(!verifyTurma(turma).equals("")){
+                                aluno[i].setNome(nome);
+                                aluno[i].setCpf(cpf);
+                                aluno[i].setIdade(idade);
+                                aluno[i].setTurma(turma);
+                                msg = "Salvo com sucesso!";
+                            }else
+                                msg = "\nOs dados não foram salvos, pois turma '"+turma+"' não existe.";
+                            
                             break;
                         }else
                             msg = "Nada a ser atualizado.";
@@ -522,5 +528,19 @@ public class Principal {
     
     private static void relatorio(){
         
+    }
+    
+    private static String verifyTurma(String strTurma){
+        String resulTurma = "";
+        for(int i=0; i<turma.length; i++){
+            if(turma[i] != null){
+                if(strTurma.toUpperCase().equals(turma[i].getNome())){
+                    resulTurma = strTurma;
+                    break;
+                }else
+                    resulTurma = "";
+            }   
+        }
+        return resulTurma;
     }
 }
