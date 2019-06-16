@@ -47,7 +47,12 @@ public class Global {
     }
     
     public void relatorio(){
-        
+        System.out.print("\n---------------------------------"
+                + "\n1 para simples"
+                + "\n2 para datalhado"
+                + "\n3 para voltar"
+                + "\n4 para sair"
+                + "\n---------------------------------\nSelecione -> ");
     }
     
     // return

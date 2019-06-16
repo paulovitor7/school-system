@@ -291,6 +291,7 @@ public class Principal {
                                 prof[i].setCpf(cpf);
                                 prof[i].setIdade(idade);
                                 prof[i].setSalario(salario);
+                                prof[i].setTurma(turma);
                                 msg = "Salvo com sucesso!";
                             }else
                                 msg = "\nOs dados não foram salvos, pois turma '"+turma+"' não existe.";
@@ -345,7 +346,7 @@ public class Principal {
                 } 
                         
                 
-                   case 6:{
+                case 6:{
                     System.out.println("\nVoltando...");
                     sairProf = true;
                     break;
@@ -527,7 +528,55 @@ public class Principal {
     }
     
     private static void relatorio(){
+        System.out.print("\n< Relatorio >\n");
         
+        g.relatorio();
+        int opc = scan.nextInt();
+        if(opc == 1){
+            System.out.print("\nRelatorio Simples: \n");
+            for(int i=0; i<turma.length; i++){
+                if(turma[i] != null){
+                    System.out.println("\nTurma: "+turma[i].getNome());
+                    System.out.println("\nProfessor: ");
+                    for(int i2=0; i2<prof.length; i2++){
+                        if(prof[i2] != null){
+                            if(prof[i2].getTurma().toUpperCase().equals(turma[i].getNome()))
+                            System.out.println("cod: "+prof[i2].getStrCod()+" - Nome: "+prof[i2].getNome());
+                        }
+                    }
+                    System.out.println("\nAlunos(s): ");
+                    for(int i2=0; i2<aluno.length; i2++){
+                        if(aluno[i2] != null){
+                            if(aluno[i2].getTurma().toUpperCase().equals(turma[i].getNome()))
+                            System.out.println("RA: "+aluno[i2].getRa()+" - Nome: "+aluno[i2].getNome());
+                        }
+                    }
+                }   
+            }
+        }else if(opc == 2){
+            System.out.print("\nRelatorio Detalhado: \n");
+            for(int i=0; i<turma.length; i++){
+                if(turma[i] != null){
+                    System.out.println("\nTurma: "+turma[i].toString());
+                    System.out.println("\nProfessor: ");
+                    for(int i2=0; i2<prof.length; i2++){
+                        if(prof[i2] != null){
+                            if(prof[i2].getTurma().toUpperCase().equals(turma[i].getNome()))
+                            System.out.println(prof[i2].toString());
+                        }
+                    }
+                    System.out.println("\nAlunos(s): ");
+                    for(int i2=0; i2<aluno.length; i2++){
+                        if(aluno[i2] != null){
+                            if(aluno[i2].getTurma().toUpperCase().equals(turma[i].getNome()))
+                            System.out.println(aluno[i2].toString());
+                        }
+                    }
+                }   
+            }
+        }else if(opc == 3){
+            System.out.println("Voltando...");
+        }
     }
     
     private static String verifyTurma(String strTurma){

@@ -23,6 +23,14 @@ public class Professor extends Funcionario{
         return this.codigo;
     }
     
+    public String getTurma() {
+        return this.turma;
+    }
+    
+    public void setTurma(String turma) {
+        this.turma = turma;
+    }
+    
     @Override
     public String toString(){
         return "\n\nFuncionario: "+tipoFuncionario+"\n"+
