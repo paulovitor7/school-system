@@ -152,18 +152,27 @@ public class Principal {
                     break;
                 }
                 case 5:{
-                    System.out.println("\nLista Personalizada:\n");
+                    System.out.println("\nLista Personalizada:");
                     g.subMenuListaPersonalizada();
                     int opcLista = scan.nextInt();
                     scan.nextLine();
                     if(opcLista == 1){
-                        System.out.println("Lista detalhada: ");
+                        System.out.println("\nLista detalhada: ");
                         for(int i=0; i<turma.length; i++){
                             if(turma[i] != null)
                                 System.out.println("\n"+turma[i].toString());
                         }
                     }else if(opcLista == 2){
-                        System.out.println("em desenvolvimento...");
+                        System.out.print("\nInforme o codigo a ser listado -> ");
+                        int cod = scan.nextInt();
+                        scan.nextLine();
+                        for(int i=0; i<turma.length; i++){
+                            if(turma[i] != null)
+                                if(turma[i].getCodigo() == cod){
+                                    System.out.println("\n"+turma[i].toString());
+                                    break;
+                                }
+                        }
                     }else if(opcLista == 3)
                         System.out.println("Voltando...");
                     else
