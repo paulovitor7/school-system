@@ -6,7 +6,7 @@ public class Turma extends Materia{
     
     private String nome = "";
     private String[] aulas;
-    private static int codigo;
+    private int codigo;
     
     public Turma(String nome, int[] aulasIndice) {
         this.nome = nome.toUpperCase();
