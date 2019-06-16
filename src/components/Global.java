@@ -1,5 +1,8 @@
 package components;
 
+import java.util.Scanner;
+import templates.Materia;
+        
 public class Global {
     
     public final String app_name = "School System";
@@ -32,11 +35,22 @@ public class Global {
                 + "\n---------------------------------\nSelecione -> ");
     }
     
-    public void subMenuTurma(String aulas){
-        System.out.print("\n---------------------------------\n"
-                +aulas
-                + "\n---------------------------------\nSelecione -> ");
+    public int[] subMenuTurma(int max){
+        Scanner scan = new Scanner(System.in);
+        Materia materias = new Materia();
         
+        System.out.print("\n*********************************"
+                +materias.strMaterias()
+                + "\n*********************************\n");
+        
+        int[] selecionados = new int[max];
+        
+        for(int i=0; i<selecionados.length; i++){
+            System.out.print("Selecione o item acima -> ");
+            selecionados[i] = scan.nextInt()-1;
+        }
+        
+        return selecionados;
     }
     // return
 }

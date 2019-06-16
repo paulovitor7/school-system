@@ -9,7 +9,7 @@ public class Turma extends Materia{
     private static int codigo;
     
     public Turma(String nome, int[] aulasIndice) {
-        this.nome = nome;
+        this.nome = nome.toUpperCase();
         this.mountAulas(aulasIndice);
         codigo++;
     }
@@ -31,6 +31,18 @@ public class Turma extends Materia{
     
     public void setNome(String nome){
         this.nome = nome;
+    }
+
+    public String getAulasIndice() {
+        String strMatrias = "";
+        for(int i=0; i<this.aulas.length; i++){
+            strMatrias = strMatrias+"\n"+(i+1)+": "+this.aulas[i];
+        }
+        return strMatrias;
+    }
+    
+    public void setAulasIndice(int[] aulasIndice){
+        this.mountAulas(aulasIndice);
     }
     
     @Override

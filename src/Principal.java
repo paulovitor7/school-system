@@ -62,25 +62,27 @@ public class Principal {
             g.subMenu();
             int opc = scan.nextInt();
             scan.nextLine();
-            sairTurma = true;
-            
+            System.out.println(turma[0]);
             switch(opc){
                 case 1:{
-                    System.out.println("\nMáximo de cadastro: "+MAXALUNO+"\n");
+                    System.out.println("\nMáximo de cadastro: "+MAXTURMA+"\n");
                     String error = "";
 
                     for(int i=0; i<turma.length; i++){
                         if(turma[i] == null){
                             System.out.print("Informe o nome -> ");
                             String nome = scan.nextLine();
+                            System.out.print("Informe quantas materias terá a turma -> ");
+                            int max = scan.nextInt();
                             
-                            int[] aulas = new int [3];
-                            turma [i] = new Turma (nome, aulas);
-                            error = "";
+                            int[] aulas = g.subMenuTurma(max);
 
+                            turma[i] = new Turma(nome, aulas);
+                            
                             if(turma[i] != null)
                                 System.out.println("\nSalvo com sucesso!\n");
 
+                            error = "";
                             break;
                         }else
                             error = "\nTodos os cadastro já foram feitos.";
@@ -117,11 +119,16 @@ public class Principal {
                     scan.nextLine();
                     
                     for(int i=0; i<turma.length; i++){
-                        if(cod == turma [i].getCodigo()){
+                        if(cod == turma[i].getCodigo()){
                             System.out.print("Informe o nome -> ");
                             String nome = scan.nextLine();
+                            System.out.print("Informe quantas materias terá a turma -> ");
+                            int max = scan.nextInt();
+                            
+                            int[] aulas = g.subMenuTurma(max);
                             
                             turma[i].setNome(nome);
+                            turma[i].setAulasIndice(aulas);
                             
                             msg = "Salvo com sucesso!";
 
@@ -137,7 +144,7 @@ public class Principal {
                     System.out.println("\nListar de Turmas:\n");
                     for(int i=0; i<turma.length; i++){
                         if(turma[i] != null)
-                            System.out.println((i+1)+". cod: "+turma[i].getNome()+" - Nome: "+turma[i].getNome());
+                            System.out.println((i+1)+". cod: "+turma[i].getCodigo()+" - Nome: "+turma[i].getNome());
                     }
                     break;
                 }

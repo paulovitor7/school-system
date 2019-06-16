@@ -15,6 +15,14 @@ public class Materia {
         return MATERIAS;
     }
     
+    public String strMaterias(){
+        String strMatrias = "";
+        for(int i=0; i<MATERIAS.length; i++){
+            strMatrias = strMatrias+"\n"+(i+1)+": "+MATERIAS[i];
+        }
+        return strMatrias;
+    }
+    
     @Override
     public String toString(){
         String strMatrias = "";
