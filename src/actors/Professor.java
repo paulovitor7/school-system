@@ -4,12 +4,13 @@ import templates.Funcionario;
 
 public class Professor extends Funcionario{
 
-    private String strCodigo;
+    private String strCodigo, turma;
     private int codigo;
     private static int codigoInterno;
     
-    public Professor(String nome, String cpf, int idade, double salario) {
+    public Professor(String nome, String cpf, int idade, double salario, String turma) {
         super(nome, cpf, idade, salario, 0.1, "Professor");
+        this.turma = turma;
         this.codigo = ++codigoInterno;
         this.strCodigo = "P"+this.codigo;
     }

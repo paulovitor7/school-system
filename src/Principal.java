@@ -167,11 +167,12 @@ public class Principal {
                         int cod = scan.nextInt();
                         scan.nextLine();
                         for(int i=0; i<turma.length; i++){
-                            if(turma[i] != null)
+                            if(turma[i] != null){
                                 if(turma[i].getCodigo() == cod){
                                     System.out.println("\n"+turma[i].toString());
                                     break;
                                 }
+                            }
                         }
                     }else if(opcLista == 3)
                         System.out.println("Voltando...");
@@ -227,7 +228,7 @@ public class Principal {
                             System.out.print("Informe o salario -> ");
                             double salario = scan.nextDouble();
 
-                            prof[i] = new Professor(nome, cpf, idade, salario);
+                            prof[i] = new Professor(nome, cpf, idade, salario, "A");
                             error = "";
 
                             if(prof[i] != null)
@@ -318,10 +319,13 @@ public class Principal {
                         scan.nextLine();
                         for(int i=0; i<prof.length; i++){
                             
-                            if(prof[i] != null)
+                            if(prof[i] != null){
                                 if(prof[i].getStrCod().equals (cod)){
                                     System.out.println("\n"+prof[i].toString());
-                                    break;} }
+                                    break;
+                                }
+                            }
+                        }
                     }else if(opcLista == 3)
                         System.out.println("Voltando...");
                     else
@@ -480,10 +484,13 @@ public class Principal {
                         int cod = scan.nextInt();
                         scan.nextLine();
                         for(int i=0; i<aluno.length; i++){
-                            if(aluno[i] != null)
+                            if(aluno[i] != null){
                                 if(aluno[i].getRa() == cod){
                                     System.out.println("\n"+aluno[i].toString());
-                                    break;} }
+                                    break;
+                                }
+                            }
+                        }
                     }else if(opcLista == 3)
                         System.out.println("Voltando...");
                     else
