@@ -62,7 +62,7 @@ public class Principal {
             g.subMenu();
             int opc = scan.nextInt();
             scan.nextLine();
-            System.out.println(turma[0]);
+
             switch(opc){
                 case 1:{
                     System.out.println("\nMáximo de cadastro: "+MAXTURMA+"\n");

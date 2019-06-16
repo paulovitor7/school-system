@@ -47,7 +47,7 @@ public class Turma extends Materia{
     
     @Override
     public String toString(){
-        String strTurma = "\nTurma: "+this.nome+"\nCodio: "+codigo;
+        String strTurma = "\nTurma: "+this.nome+"\nCodigo: "+codigo;
         for(int i=0; i<this.aulas.length; i++)
             strTurma = strTurma+"\n"+this.aulas[i];
         
